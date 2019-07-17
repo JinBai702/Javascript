@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+<link href="style.css" rel="stylesheet" type="text/css">
+<script>
+function validateForm() {
+    var valid = true;
+    document.getElementById("output").remove();
+    document.getElementById("validation-response").style.display = "none";
+    document.getElementById("validation-response").value = "";
+
+    if(document.form.input_txt.value == "") {
+        document.getElementById("validation-response").style.display = "block";
+        document.getElementById("validation-response").innerHTML = "Text Field Should not be Empty";
+        valid = false;
+    }  
+    
+    return valid;
+}
+
+
+
+</script>
+</head>
+
+<body>
+
+    <form name="form" id="form" method="post" 
+        enctype="multipart/form-data" onsubmit="return validateForm();">
+
+        <div class="form-row">
+
+            <div>
+                <label>Plese Enter LocalStorage:</label> 
+				<textarea type="text" class="input-field" name="input_txt" id="input_txt"></textarea> 
+            </div>
+        </div>
+        <div class="button-row">
+            <input type="button" id="submit" name="submit"
+                value="Check">
+        </div>
+    </form>
+    <div id="validation-response"></div>
+<div class="output-panel">
+
+</div>
+    <div id="output">
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="decoder.js"></script>
+</body>
+</html>
+
